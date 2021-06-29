@@ -75,10 +75,8 @@ class Translate():
         """
         if self.alphabet(herucode):
             suma = 0
-            contador = 0
-            for num in herucode:
-                suma += self.orden.find(num) * (20**contador)
-                contador += 1
+            for contador, item in enumerate(herucode):
+                suma += self.orden.find(item) * (20**contador)
             return suma
         return False
 
