@@ -13,9 +13,7 @@ class Translate():
         @param bar_letters: str of only ber letters
         @type bar_letters: str
         """
-        self.orden = orden
-        self.foo_letters = foo_letters
-        self.bar_letters = bar_letters
+        self.orden, self.foo_letters, self.bar_letters = orden, foo_letters, bar_letters
         if bar_letters == "":
             self.bar_letters = [letter for letter in self.orden if letter not in self.foo_letters]
 
@@ -40,7 +38,10 @@ class Translate():
 
         @rtype: bool
         """
-        if self.alphabet(word) and len(word) == 6 and word[-1:] in self.foo_letters:
+        cond1 = self.alphabet(word)
+        cond2 = len(word) == 6
+        cond3 = word[-1:] in self.foo_letters
+        if cond1 and cond2 and cond3:
             u_letter = [letter for letter in word if letter in ["u"]]
             return len(u_letter) == 0
         return False
@@ -53,7 +54,10 @@ class Translate():
 
         @rtype: bool
         """
-        return self.alphabet(word) and len(word) >= 6 and word[-1:] in self.bar_letters
+        cond1 = self.alphabet(word)
+        cond2 = len(word) >= 6
+        cond3 = word[-1:] in self.bar_letters
+        return cond1 and cond2 and cond3
 
     def inflected_in_its_subjunctive(self, word: str):
         """Detect if is a subjunctive.
