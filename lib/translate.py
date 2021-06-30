@@ -8,6 +8,10 @@ class Translate():
     bar_letters: An str
     """
 
+    def __repr__(self):
+        """Return repr."""
+        return f'{self.__class__.__name__}({self.orden}, {self.foo_letters}, {self.bar_letters})'
+
     def __init__(self, orden: str = "", foo_letters: str = "", bar_letters: str = ""):
         """Inicialize de instance.
 
@@ -24,7 +28,7 @@ class Translate():
         if bar_letters == "":
             self.bar_letters = [letter for letter in self.orden if letter not in self.foo_letters]
 
-    def alphabet(self, word: str = ""):
+    def alphabet(self, word: str = "") -> bool:
         """Detect if is a alphabet valid.
 
         @param word: a word to verify
@@ -37,7 +41,7 @@ class Translate():
                 return False
         return len(word) > 1
 
-    def preposition(self, word: str = ""):
+    def preposition(self, word: str = "") -> bool:
         """Detect if is a preposition.
 
         @param word: a word to verify
@@ -53,7 +57,7 @@ class Translate():
             return len(u_letter) == 0
         return False
 
-    def verbs(self, word: str = ""):
+    def verbs(self, word: str = "") -> bool:
         """Detect if is a verbs.
 
         @param word: a word to verify
@@ -66,7 +70,7 @@ class Translate():
         cond3 = word[-1:] in self.bar_letters
         return cond1 and cond2 and cond3
 
-    def inflected_in_its_subjunctive(self, word: str):
+    def inflected_in_its_subjunctive(self, word: str) -> bool:
         """Detect if is a subjunctive.
 
         @param word: a word to verify
@@ -88,7 +92,7 @@ class Translate():
             return sum(self.orden.find(item) * (20**contador) for contador, item in enumerate(herucode))
         return False
 
-    def number_to_be_pretty(self, herucode: str):
+    def number_to_be_pretty(self, herucode: str) -> bool:
         """Detect if is a pretty number.
 
         @rtype: integer or None
@@ -98,7 +102,7 @@ class Translate():
         cond3 = num % 3 == 0
         return num and cond2 and cond3
 
-    def herucodes_alphabetical_order(self, words: dict = []):
+    def herucodes_alphabetical_order(self, words: dict = []) -> list:
         """Order alphabetically.
 
         @param herucode: a word to parse

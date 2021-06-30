@@ -6,6 +6,7 @@ from flask import json
 
 app = Flask(__name__)
 o_translate = Translate(orden="sxocqnmwpfyheljrdgui", foo_letters="udxsmpf")
+print(o_translate.__repr__)
 
 
 @app.route("/parse", methods=['POST'])
