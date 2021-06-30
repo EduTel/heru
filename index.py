@@ -10,7 +10,7 @@ print(o_translate.__repr__)
 
 
 @app.route("/parse", methods=['POST'])
-def hello_world():
+def hello_world() -> dict:
     """
     functionality.
 
