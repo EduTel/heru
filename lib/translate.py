@@ -71,7 +71,7 @@ class Translate():
         @param herucode: a word to parse
         @type herucode: str
 
-        @rtype: bool
+        @rtype: bool or int
         """
         if self.alphabet(herucode):
             return sum(self.orden.find(item) * (20**contador) for contador, item in enumerate(herucode))
