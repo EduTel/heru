@@ -1,5 +1,12 @@
 class Translate():
-    """translate according to the rules."""
+    """translate according to the rules.
+
+    Attributes
+    ----------
+    orden: A str
+    foo_letters: An str
+    bar_letters: An str
+    """
 
     def __init__(self, orden: str = "", foo_letters: str = "", bar_letters: str = ""):
         """Inicialize de instance.
@@ -87,7 +94,9 @@ class Translate():
         @rtype: integer or None
         """
         num = self.parse_herucode_to_decimal(herucode)
-        return num and num >= 81827 and num % 3 == 0
+        cond2 = num >= 81827
+        cond3 = num % 3 == 0
+        return num and cond2 and cond3
 
     def herucodes_alphabetical_order(self, words: dict = []):
         """Order alphabetically.

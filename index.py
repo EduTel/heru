@@ -1,5 +1,6 @@
 from pprint import pprint
-from flask import Flask, request
+from flask import Flask
+from flask import request
 from lib.translate import Translate
 from flask import json
 
@@ -22,7 +23,7 @@ def hello_world():
         "vocabulary_list": ""
     }
     array_text = request.json.get('text')
-    if type(array_text) is str:
+    if isinstance(array_text, str):
         array_text = array_text.split()
         if len(array_text) > 0:
             lst_preposition = [text for text in array_text if o_translate.preposition(text)]
