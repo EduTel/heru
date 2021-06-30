@@ -74,10 +74,7 @@ class Translate():
         @rtype: bool
         """
         if self.alphabet(herucode):
-            suma = 0
-            for contador, item in enumerate(herucode):
-                suma += self.orden.find(item) * (20**contador)
-            return suma
+            return sum(self.orden.find(item) * (20**contador) for contador, item in enumerate(herucode))
         return False
 
     def number_to_be_pretty(self, herucode: str):
